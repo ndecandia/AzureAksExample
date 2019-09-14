@@ -7,6 +7,10 @@ metadata:
     component: azure-voting-app-back
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: azure-voting-app
+      component: azure-voting-app-back
   template:
     metadata:
       labels:
@@ -49,7 +53,7 @@ spec:
         persistentVolumeClaim:
           claimName: azure-voting-app-pv-claim
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azure-voting-app-front
@@ -58,6 +62,10 @@ metadata:
     component: azure-voting-app-front
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: azure-voting-app
+      component: azure-voting-app-front
   template:
     metadata:
       labels:
