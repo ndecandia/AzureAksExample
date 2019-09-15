@@ -1,5 +1,5 @@
 {{- $serviceName := include "name" . -}}
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ $serviceName }}-{{ .Values.azureVoteFront.deployment.name }}
@@ -8,6 +8,10 @@ metadata:
     component: {{ $serviceName }}-{{ .Values.azureVoteFront.deployment.name }}
 spec:
   replicas: {{ .Values.azureVoteFront.deployment.replicas }}
+  selector:
+    matchLabels:
+{{ include "labels.standard" . | indent 6 }}
+      component: {{ $serviceName }}-{{ .Values.azureVoteFront.deployment.name }}
   template:
     metadata:
       labels:

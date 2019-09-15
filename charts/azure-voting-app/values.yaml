@@ -1,7 +1,7 @@
 # Default values for azure-voting-app.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-  
+
 mysql:
   user: dbuser
   password: Password12
@@ -37,7 +37,7 @@ azureVoteBack:
   deployment:
     replicas: 1
     name: back
-    image: yoichikawasaki/azure-vote-back
+    image: hermedia/azure-vote-back
     imageTag: 1.0.0
     imagePullPolicy: IfNotPresent
     internalPort: 3306
