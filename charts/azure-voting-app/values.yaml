@@ -17,7 +17,7 @@ azureVoteFront:
   deployment:
     replicas: 2
     name: front
-    image: yoichikawasaki/azure-vote-front
+    image: hermedia/azure-vote-front
     imageTag: 1.0.0
     imagePullPolicy: Always
     internalPort: 80
